@@ -37,7 +37,7 @@ print("Début du chargement du script...")
 
 
 # Chemin du fichier CSV créé
-csv_file_path = r"C:\Users\mathi\Desktop\BDD FLEET.csv"
+csv_file_path = os.path.join("..", "sources", "database.csv")
 
 
 def get_user_choice(query, best_match, probable_matches, total_checks, current_check):
@@ -639,7 +639,7 @@ else:
 df = pd.DataFrame(table_data, columns=headers[: len(table_data[0])])
 
 # Spécifier le chemin d'accès pour enregistrer le fichier Excel sur le bureau de l'utilisateur
-desktop = os.path.join(os.path.join(os.environ["USERPROFILE"]), "Desktop")
+desktop = os.getcwd()
 
 # Générer un nom de fichier avec la date et l'heure actuelles
 current_time = datetime.now().strftime("%Y-%m-%d_%H-%M")
@@ -647,7 +647,7 @@ file_name = f"Recherche_BDD_{current_time}.xlsx"
 file_path = os.path.join(desktop, file_name)
 
 # Enregistrer le DataFrame en tant que fichier Excel
-df.to_excel(file_path, index=False)
+df.to_csv(file_path, index=False)
 
 print(
     f"Les résultats ont été enregistrés sous forme de fichier Excel sur le bureau : {file_path}"

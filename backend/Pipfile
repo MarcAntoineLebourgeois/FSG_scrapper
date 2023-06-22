@@ -9,6 +9,12 @@ flake8 = "*"
 pylint = "*"
 flask = "*"
 python-dotenv = "*"
+pandas = "*"
+tabulate = "*"
+bs4 = "*"
+tqdm = "*"
+requests = "*"
+scikit-learn = "*"
 
 [dev-packages]
 
